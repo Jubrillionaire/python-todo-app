@@ -17,17 +17,41 @@ def view_tasks(task_lists):
             print(f"{i}. {task}")
 
 
+def add_task(task_lists):
+    task = input("Enter the task you want to add: ")
+    if task:
+        task_lists.append(task)
+        print("successfully added task!")
+    else:
+        print("No task entered. Please try again.")
+
+
 
 
 def main():
-    display_menu()
+   
     # single source of truth: data
-    tasks = ["I wanna eat", "I wanna code", "Get some eggs later"]
-    choice = input("Enter your choice: ")
+    tasks = []
+    while True:
 
-    if choice == '1':
-        view_tasks(tasks)
+        display_menu()
+        
+        choice = input("Enter your choice: ")
+
+        if choice == '1':
+            view_tasks(tasks)
+        elif choice == '2':
+            add_task(tasks)
+        else:
+            print("Invalid choice, Please enter a number between 1-4")
 
 
 
 main()
+
+
+#1. Store data somewhere
+#2. Request data from the user
+#3. check what data is entered, depending on the data, do something
+#4. What happens when the user enrers 2, call a function to add the taks to the existing tasks in the list
+
